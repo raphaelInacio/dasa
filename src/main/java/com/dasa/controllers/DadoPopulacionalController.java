@@ -14,8 +14,8 @@ import com.dasa.domain.EstatisticaAnoResponse;
 import com.dasa.service.DadosPopulacionaisService;
 
 @RestController
-@RequestMapping("api/v1/pesquisas/populacao-geral")
-public class PopulacaoGeralController {
+@RequestMapping("api/v1/dado-populacional")
+public class DadoPopulacionalController {
 
 	@Autowired
 	DadosPopulacionaisService service;

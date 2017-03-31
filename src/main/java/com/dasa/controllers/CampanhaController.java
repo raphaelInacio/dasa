@@ -14,7 +14,7 @@ import com.dasa.domain.EstatisticaAnoResponse;
 import com.dasa.service.DadosPopulacionaisService;
 
 @RestController
-@RequestMapping("api/v1/pesquisas/campanhas/")
+@RequestMapping("api/v1/campanhas/")
 public class CampanhaController {
 
 	@Autowired
