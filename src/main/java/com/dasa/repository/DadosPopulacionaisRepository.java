@@ -1,10 +1,10 @@
 package com.dasa.repository;
 
-import com.dasa.domain.DadoPopulacional;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.Repository;
-
 import javax.transaction.Transactional;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.dasa.domain.DadoPopulacional;
 
 @Transactional
 public interface DadosPopulacionaisRepository extends CrudRepository<DadoPopulacional, Long> {

@@ -1,10 +1,8 @@
 package com.dasa.service;
 
-import com.dasa.domain.DadoPopulacional;
-
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
+import com.dasa.domain.DadoPopulacional;
 
 
 public interface DadosPopulacionaisService {
