@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.dasa.domain.Campanha;
+import com.dasa.domain.DadosParticipacaoCampanhaAnoResponse;
 import com.dasa.repository.CampanhasRepository;
 
 @Service
 public class CampanhasServiceImpl implements CampanhasService {
 
 	@Autowired
-	private CampanhasRepository campanhasRepository;;
+	private CampanhasRepository campanhasRepository;
 
 	@Override
 	public Campanha inserirCampanha(Campanha campanha) {
@@ -42,6 +43,21 @@ public class CampanhasServiceImpl implements CampanhasService {
 		}
 
 		return campanhasRepository.findByAno(anoPesquisa);
+	}
+
+	@Override
+	public DadosParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(Optional<String> ano) {
+
+		final String anoPesquisa = ano.get();
+		Iterable<Campanha> dadosDePesquisa;
+
+		if (!ano.isPresent()) {
+			throw new IllegalArgumentException("Parametro Ano é Obrigatório");
+		}
+
+		dadosDePesquisa = campanhasRepository.findByAno(anoPesquisa);
+
+		return new DadosParticipacaoCampanhaAnoResponse(dadosDePesquisa, anoPesquisa);
 	}
 
 }

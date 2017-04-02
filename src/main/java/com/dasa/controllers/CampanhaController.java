@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dasa.domain.Campanha;
+import com.dasa.domain.DadosParticipacaoCampanhaAnoResponse;
 import com.dasa.service.CampanhasService;
 
 @RestController
@@ -27,8 +28,8 @@ public class CampanhaController {
 	}
 	
 	@RequestMapping(value = "/anos/{ano}", method = GET)
-	public Iterable<Campanha> obterDadosCampanhaPorAno(@PathVariable String ano){
-		return service.buscarInformacoesCampanhas(Optional.of(ano));
+	public DadosParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(@PathVariable String ano){
+		return service.obterDadosCampanhaPorAno(Optional.of(ano));
 	}
 	
 	@RequestMapping("/id/{id}/anos/{ano}")

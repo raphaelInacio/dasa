@@ -50,18 +50,30 @@ public class Application {
 				dadosPopulacionaisRepository.save(d);
 			}
 
-			Campanha cancer = null;
-
-			for (int i = 0; i < 100; i++) {
-
-				if ((i % 2) == 0) {
-					cancer = new Campanha(TipoCampanha.MAMA, Sexo.F, "2017");
-				}
-				cancer = new Campanha(TipoCampanha.MAMA, Sexo.M, "2017");
-
-				campanhasRepository.save(cancer);
+			Campanha participanesHomens = null;
+			Campanha participanesMulher = null;
+			
+			for (int i = 0; i < 360; i++) {
+				participanesMulher = new Campanha(TipoCampanha.MAMA, Sexo.F, "2017");
+				campanhasRepository.save(participanesMulher);
 			}
-
+			
+			for (int i = 0; i < 250; i++) {
+				participanesHomens = new Campanha(TipoCampanha.PROSTATA, Sexo.M, "2017");
+				campanhasRepository.save(participanesHomens);
+			}
+			
+			for (int i = 0; i < 500; i++) {
+				participanesMulher = new Campanha(TipoCampanha.MAMA, Sexo.F, "2016");
+				campanhasRepository.save(participanesMulher);
+			}
+			
+			for (int i = 0; i < 400; i++) {
+				participanesHomens = new Campanha(TipoCampanha.PROSTATA, Sexo.M, "2016");
+				campanhasRepository.save(participanesHomens);
+			}
+			
+			
 		} catch (IOException e) {
 			throw new UncheckedIOException("Erro ao popular a Base de Dados", e);
 		}

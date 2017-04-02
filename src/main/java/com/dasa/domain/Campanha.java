@@ -20,7 +20,7 @@ public class Campanha {
 	private Sexo sexo;
 
 	private String ano;
-
+	
 	private TipoCampanha campanha;
 
 	public Campanha() {
