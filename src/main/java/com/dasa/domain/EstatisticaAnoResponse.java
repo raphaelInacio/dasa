@@ -40,4 +40,5 @@ public class EstatisticaAnoResponse {
 	public Long getPercentualMulheres() {
 		return percentualMulheres;
 	}
+
 }

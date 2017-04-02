@@ -3,7 +3,8 @@ package com.dasa.service;
 import java.util.Optional;
 
 import com.dasa.domain.Campanha;
-import com.dasa.domain.DadosParticipacaoCampanhaAnoResponse;
+import com.dasa.domain.ParticipacaoCampanhaAnoResponse;
+import com.dasa.domain.ProporcaoParticipacaoCampanhaAnoResponse;
 
 public interface CampanhasService {
 
@@ -11,6 +12,8 @@ public interface CampanhasService {
 
 	Iterable<Campanha> buscarInformacoesCampanhas(final Optional<String> ano);
 
-	DadosParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(Optional<String> ano);
+	ParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(Optional<String> ano);
+	
+	ProporcaoParticipacaoCampanhaAnoResponse obterProporcaoDadosCampanhaPorAno(Optional<String> ano);
 
 }

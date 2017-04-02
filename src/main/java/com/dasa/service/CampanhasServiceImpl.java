@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.dasa.domain.Campanha;
-import com.dasa.domain.DadosParticipacaoCampanhaAnoResponse;
+import com.dasa.domain.ParticipacaoCampanhaAnoResponse;
+import com.dasa.domain.ProporcaoParticipacaoCampanhaAnoResponse;
 import com.dasa.repository.CampanhasRepository;
 
 @Service
@@ -46,7 +47,7 @@ public class CampanhasServiceImpl implements CampanhasService {
 	}
 
 	@Override
-	public DadosParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(Optional<String> ano) {
+	public ParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(Optional<String> ano) {
 
 		final String anoPesquisa = ano.get();
 		Iterable<Campanha> dadosDePesquisa;
@@ -57,7 +58,22 @@ public class CampanhasServiceImpl implements CampanhasService {
 
 		dadosDePesquisa = campanhasRepository.findByAno(anoPesquisa);
 
-		return new DadosParticipacaoCampanhaAnoResponse(dadosDePesquisa, anoPesquisa);
+		return new ParticipacaoCampanhaAnoResponse(dadosDePesquisa, anoPesquisa);
+	}
+
+	@Override
+	public ProporcaoParticipacaoCampanhaAnoResponse obterProporcaoDadosCampanhaPorAno(Optional<String> ano) {
+
+		final String anoPesquisa = ano.get();
+		Iterable<Campanha> dadosDePesquisa;
+
+		if (!ano.isPresent()) {
+			throw new IllegalArgumentException("Parametro Ano é Obrigatório");
+		}
+
+		dadosDePesquisa = campanhasRepository.findByAno(anoPesquisa);
+
+		return new ProporcaoParticipacaoCampanhaAnoResponse(dadosDePesquisa, anoPesquisa);
 	}
 
 }

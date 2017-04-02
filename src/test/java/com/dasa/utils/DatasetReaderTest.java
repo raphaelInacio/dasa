@@ -1,8 +1,9 @@
 package com.dasa.utils;
 
-import com.dasa.domain.DadoPopulacional;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.dasa.domain.DadoPopulacional;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -29,7 +30,7 @@ public class DatasetReaderTest {
     public void readsDataset() {
 
         final List<DadoPopulacional> dadosDadoPopulacionalList = reader.readDataset();
-        assertThat(dadosDadoPopulacionalList, hasSize(10));
+        assertThat(dadosDadoPopulacionalList, hasSize(17));
     }
 
     private DatasetReader createDatasetReader() {

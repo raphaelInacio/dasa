@@ -1,7 +1,5 @@
 package com.dasa.utils;
 
-import com.dasa.domain.DadoPopulacional;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -9,6 +7,8 @@ import java.io.UncheckedIOException;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import com.dasa.domain.DadoPopulacional;
 
 public class DatasetReader {
 

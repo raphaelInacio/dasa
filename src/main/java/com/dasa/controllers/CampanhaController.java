@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dasa.domain.Campanha;
-import com.dasa.domain.DadosParticipacaoCampanhaAnoResponse;
+import com.dasa.domain.ParticipacaoCampanhaAnoResponse;
+import com.dasa.domain.ProporcaoParticipacaoCampanhaAnoResponse;
 import com.dasa.service.CampanhasService;
 
 @RestController
@@ -21,23 +22,20 @@ public class CampanhaController {
 
 	@Autowired
 	CampanhasService service;
-	
+
 	@RequestMapping(value = "/", method = POST)
-	public Campanha gravarDadosCampanha(@RequestBody Campanha campanha){
+	public Campanha gravarDadosCampanha(@RequestBody Campanha campanha) {
 		return service.inserirCampanha(campanha);
 	}
-	
+
 	@RequestMapping(value = "/anos/{ano}", method = GET)
-	public DadosParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(@PathVariable String ano){
+	public ParticipacaoCampanhaAnoResponse obterDadosCampanhaPorAno(@PathVariable String ano) {
 		return service.obterDadosCampanhaPorAno(Optional.of(ano));
 	}
-	
-	@RequestMapping("/id/{id}/anos/{ano}")
-	public Campanha obterDadosCampanha(){
-	//	DadoPopulacional pop = service.obterPopulacaoPorAno(Optional.of("2010"));
-		//EstatisticaAnoResponse stat = new EstatisticaAnoResponse(pop);
-		
-		return null;	
+
+	@RequestMapping(value = "/proporcao/anos/{ano}", method = GET)
+	public ProporcaoParticipacaoCampanhaAnoResponse obterProporcaoDadosCampanhaPorAno(@PathVariable String ano) {
+		return service.obterProporcaoDadosCampanhaPorAno(Optional.of(ano));
 	}
-	
+
 }

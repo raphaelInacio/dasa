@@ -50,10 +50,8 @@ public class CampanhaControllerTest {
 
 		mvc.perform(
 				post("/api/v1/campanhas/").contentType(MediaType.APPLICATION_JSON_UTF8).content(objectToJson(cancer)))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.campanha").value(TipoCampanha.PROSTATA.toString()))
-				.andExpect(jsonPath("$.ano").value("2017"))
-				.andExpect(jsonPath("$.sexo").value(Sexo.M.toString()));
+				.andExpect(status().isOk()).andExpect(jsonPath("$.campanha").value(TipoCampanha.PROSTATA.toString()))
+				.andExpect(jsonPath("$.ano").value("2017")).andExpect(jsonPath("$.sexo").value(Sexo.M.toString()));
 	}
 
 	@Test
@@ -62,6 +60,14 @@ public class CampanhaControllerTest {
 				.andExpect(jsonPath("$.ano").value("2017"))
 				.andExpect(jsonPath("$.campanhas[0].participantes").value(360))
 				.andExpect(jsonPath("$.campanhas[0].campanha").value("MAMA"));
+	}
+
+	@Test
+	public void deveBuscarDadosDeProporcaoCampanhaPorAnoAPI() throws Exception {
+		mvc.perform(get("/api/v1/campanhas/proporcao/anos/2017")).andExpect(status().isOk())
+				.andExpect(jsonPath("$.ano").value("2017"))
+				.andExpect(jsonPath("$.proporcaoCampanha[0].totalMulheres").value(360))
+				.andExpect(jsonPath("$.proporcaoCampanha[0].campanha").value("MAMA"));
 	}
 
 }

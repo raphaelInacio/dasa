@@ -6,12 +6,12 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class DadosParticipacaoCampanhaAnoResponse {
+public class ParticipacaoCampanhaAnoResponse {
 
 	private String ano;
 	private List<ParticipacaoCampanha> campanhas;
 
-	public DadosParticipacaoCampanhaAnoResponse(Iterable<Campanha> dadosCampanha, String ano) {
+	public ParticipacaoCampanhaAnoResponse(Iterable<Campanha> dadosCampanha, String ano) {
 		this.ano = ano;
 		this.campanhas = new ArrayList<ParticipacaoCampanha>();
 		for (TipoCampanha tipoCampanha : TipoCampanha.values()) {

@@ -19,7 +19,7 @@ public class DadosParticipacaoCampanhaAnoResponseTest {
 
 		dadosCampanha.addAll(criarDadosCampanha(TipoCampanha.PROSTATA, Sexo.M, ano, participantesPesquisaProstata));
 
-		DadosParticipacaoCampanhaAnoResponse response = new DadosParticipacaoCampanhaAnoResponse(dadosCampanha, ano);
+		ParticipacaoCampanhaAnoResponse response = new ParticipacaoCampanhaAnoResponse(dadosCampanha, ano);
 
 		assertEquals(ano, response.getAno());
 		assertEquals(participantesPesquisaMama, response.getCampanhas().get(0).getParticipantes());

@@ -31,9 +31,11 @@ Objetivos Gerais (Entregável):
 
 Inline image 2
 
-     2. Fornecer uma API onde um usuário possa notificar que participou de uma das campanhas. Importante que na resposta da participação contenha o Sexo, a Campanha e o ano.OK
+     2. Fornecer uma API onde um usuário possa notificar que participou de uma das campanhas. Importante que na resposta da participação contenha o Sexo, a Campanha e o ano.
+     OK
      
     2.1 Fornecer uma API com dos dados de participação por Campanha, realizando o filtro por Ano.
+    OK
     
     2.2 Fornecer uma API com a proporção de participação entre Homens X Mulheres X Campanha filtrando pelo ano.
 
