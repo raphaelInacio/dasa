@@ -34,7 +34,16 @@ public class DadoPopulacionalControllerTest {
 	public void deveRetornarDadosPopulacionaisDaAPI() throws Exception {
 		mvc.perform(get("/api/v1/dado-populacional/anos/2010"))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.ano").value("2010"));
+			.andExpect(jsonPath("$.ano").value("2010"))
+			.andExpect(jsonPath("$.percentualHomens").value(49))
+			.andExpect(jsonPath("$.percentualMulheres").value(50));
+	}
+	
+	@Test
+	public void deveRetornarCrescimentoPopulaciolaDaAPI() throws Exception {
+		mvc.perform(get("/api/v1/dado-populacional/taxa-crescimento/ano-base/2000/ano-pesquisa/2010"))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.taxaDeCrescimento").value(1.20));
 	}
 
 }
